@@ -1,0 +1,21 @@
+//restrict instantiation of a class to a single object - by making a private initializer and a static property containing an instance of self. May become anti-pattern if data is mutated concurrently from different parts of application due to shared state, leading to concurrency and data corruption
+public class Singleton { 
+  // singleton property
+  public static let instance = Singleton()
+  
+  public private(set) var counter: Int
+
+  //private init ensures no access from outside class
+  private init() {
+    counter = 0
+  }
+  
+  //methods
+  public func foo() {
+    print("foo")
+  }
+
+  public func bar() {
+    print("bar")
+  }
+}
